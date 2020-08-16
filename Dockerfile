@@ -11,7 +11,7 @@ ENV HOME="/config"
 
 RUN echo "**** install runtime dependencies ****" && \
     apk add --no-cache \
-    build-base \
+    curl \
     git \
     jq \
     nano \
