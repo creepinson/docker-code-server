@@ -10,6 +10,7 @@ LABEL maintainer="Theo Paris"
 ENV HOME="/config"
 
 RUN echo "**** install runtime dependencies ****" && \
+    npm i -g yarn && \
     apk add --no-cache \
     curl \
     git \
@@ -20,13 +21,13 @@ RUN echo "**** install runtime dependencies ****" && \
     nodejs \
     npm \
     sudo && \
-    echo "**** install code-server ****" && npm i -g pnpm && \
+    echo "**** install code-server ****" && \
     if [ -z ${CODE_RELEASE+x} ]; then \
     CODE_RELEASE=$(curl -sX GET "https://api.github.com/repos/cdr/code-server/releases/latest" \
     | awk '/tag_name/{print $4;exit}' FS='[""]'); \
     fi && \
     CODE_VERSION=$(echo "$CODE_RELEASE") && \
-    pnpm i -g code-server@"$CODE_VERSION" && \
+    yarn global add code-server@"$CODE_VERSION" && \
     echo "**** clean up ****"
 
 # add local files
