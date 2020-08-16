@@ -30,7 +30,7 @@ RUN echo "**** install runtime dependencies ****" && \
     echo "**** clean up ****"
 
 # add local files
-COPY /root /
+COPY ./root /
 
 # ports and volumes
 EXPOSE 8443
