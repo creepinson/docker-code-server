@@ -1,7 +1,7 @@
 version: "3.8"
 services:
     code-server-1:
-        build: linuxserver/code-server
+        image: linuxserver/code-server
         environment:
             - PUID=1000
             - PGID=1000
@@ -13,7 +13,7 @@ services:
             - 8098:8443
         restart: unless-stopped
     code-server-2:
-        build: linuxserver/code-server
+        image: linuxserver/code-server
         environment:
             - PUID=1000
             - PGID=1000
