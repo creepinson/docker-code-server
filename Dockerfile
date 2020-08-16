@@ -23,7 +23,7 @@ RUN echo "**** install runtime dependencies ****" \
     && curl -fsSL https://code-server.dev/install.sh | sh
 
 # add local files
-COPY ./root/entrypoint.sh /entrypoint.sh
+COPY ./entrypoint.sh /entrypoint.sh
 
 # ports and volumes
 EXPOSE 8443
