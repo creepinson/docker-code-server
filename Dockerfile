@@ -20,16 +20,7 @@ RUN echo "**** install runtime dependencies ****" && \
     nodejs \
     npm \
     sudo && \
-    npm i -g pnpm && \
-    pnpm i -g node-gyp && \
-    echo "**** install code-server ****" && \
-    if [ -z ${CODE_RELEASE+x} ]; then \
-    CODE_RELEASE=$(curl -sX GET "https://api.github.com/repos/cdr/code-server/releases/latest" \
-    | awk '/tag_name/{print $4;exit}' FS='[""]'); \
-    fi && \
-    CODE_VERSION=$(echo "$CODE_RELEASE") && \
-    pnpm i -g code-server@"$CODE_VERSION" && \
-    echo "**** clean up ****"
+    curl -fsSL https://code-server.dev/install.sh | sh
 
 # add local files
 COPY ./root/entrypoint.sh /entrypoint.sh
