@@ -146,6 +146,7 @@ RUN echo "**** install runtime dependencies ****" \
     nano \
     http-parser \
     python2 \
+    py3-pip \
     openssl \
     curl \
     && curl -fsSL https://code-server.dev/install.sh | sh
