@@ -28,7 +28,7 @@ RUN echo "**** install runtime dependencies ****" && \
     CODE_VERSION=$(echo "$CODE_RELEASE" | awk '{print substr($1,2); }') && \
     pnpm i -g code-server@"$CODE_VERSION" && \
     ln -s /node_modules/.bin/code-server /usr/bin/code-server && \
-    echo "**** clean up ****" && \
+    echo "**** clean up ****"
 
 # add local files
 COPY /root /
