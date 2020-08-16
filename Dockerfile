@@ -22,12 +22,11 @@ RUN echo "**** install runtime dependencies ****" && \
     sudo && \
     echo "**** install code-server ****" && npm i -g pnpm && \
     if [ -z ${CODE_RELEASE+x} ]; then \
-    CODE_RELEASE=$(curl -sX GET "https://api.github.com/repos/cdr/code-server/releases/latest" \
+    CODE_RELEASE=$(curl -sX GET "https://api.github.com/repos/creepinson/code-server/releases/latest" \
     | awk '/tag_name/{print $4;exit}' FS='[""]'); \
     fi && \
     CODE_VERSION=$(echo "$CODE_RELEASE") && \
     pnpm i -g code-server@"$CODE_VERSION" && \
-    ln -s /node_modules/.bin/code-server /usr/bin/code-server && \
     echo "**** clean up ****"
 
 # add local files
