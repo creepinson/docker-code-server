@@ -9,8 +9,7 @@ LABEL maintainer="Theo Paris"
 # environment settings
 ENV HOME="/config"
 
-RUN \
-   echo "**** install runtime dependencies ****" && \
+RUN echo "**** install runtime dependencies ****" && \
    apk add -no-cache \
     build-base \
     git \
