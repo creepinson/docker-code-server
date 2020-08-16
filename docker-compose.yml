@@ -12,7 +12,7 @@ services:
             - ./data/code-server-1/config:/config
         ports:
             - 8098:8443
-            - 8080:5500
+            - 8333:5500
         restart: unless-stopped
     code-server-2:
         build: .
@@ -26,5 +26,5 @@ services:
             - ./data/code-server-2/config:/config
         ports:
             - 8099:8443
-            - 8080:5500
+            - 8333:5500
         restart: unless-stopped
