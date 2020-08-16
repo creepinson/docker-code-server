@@ -10,7 +10,7 @@ services:
             - /var/run/docker.sock:/var/run/docker.sock:ro
             - ./data/code-server-1/config:/config
         ports:
-            - 8097:8443
+            - 8098:8443
         restart: unless-stopped
     code-server-2:
         build: .
@@ -22,5 +22,5 @@ services:
             - /var/run/docker.sock:/var/run/docker.sock:ro
             - ./data/code-server-2/config:/config
         ports:
-            - 8098:8443
+            - 8099:8443
         restart: unless-stopped
