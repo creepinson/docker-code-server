@@ -19,7 +19,7 @@ RUN echo "**** install runtime dependencies ****" && \
     py3-pip \
     nodejs \
     npm \
-    sudo |
+    sudo && \
    echo "**** install code-server ****" && npm i -g pnpm && \
    if [ -z ${CODE_RELEASE+x} ]; then \
     CODE_RELEASE=$(curl -sX GET "https://api.github.com/repos/cdr/code-server/releases/latest" \
