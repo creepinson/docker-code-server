@@ -1,0 +1,17 @@
+versin: "3.8"
+services:
+    code-server:
+        build: .
+        container_name: code-server
+        env_file: .env
+        environment:
+            - PUID=1000
+            - PGID=1000
+            - TZ=US/Pacific
+            - PROXY_DOMAIN=code.throw-out-error.dev
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+            - ./data/code-server/config:/config
+        ports:
+            - 8097:8443
+        restart: unless-stopped
