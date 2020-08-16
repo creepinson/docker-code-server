@@ -35,4 +35,5 @@ COPY ./root /
 # ports and volumes
 EXPOSE 8443
 
+RUN chmod +x /entrypoint.sh
 CMD [ "/entrypoint.sh" ]
