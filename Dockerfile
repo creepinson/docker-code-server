@@ -10,7 +10,7 @@ LABEL maintainer="Theo Paris"
 ENV HOME="/config"
 
 RUN echo "**** install runtime dependencies ****" && \
-   apk add -no-cache \
+    apk add --no-cache \
     build-base \
     git \
     jq \
@@ -20,15 +20,15 @@ RUN echo "**** install runtime dependencies ****" && \
     nodejs \
     npm \
     sudo && \
-   echo "**** install code-server ****" && npm i -g pnpm && \
-   if [ -z ${CODE_RELEASE+x} ]; then \
+    echo "**** install code-server ****" && npm i -g pnpm && \
+    if [ -z ${CODE_RELEASE+x} ]; then \
     CODE_RELEASE=$(curl -sX GET "https://api.github.com/repos/cdr/code-server/releases/latest" \
     | awk '/tag_name/{print $4;exit}' FS='[""]'); \
-   fi && \
-   CODE_VERSION=$(echo "$CODE_RELEASE" | awk '{print substr($1,2); }') && \
-   pnpm i -g code-server@"$CODE_VERSION" && \
-   ln -s /node_modules/.bin/code-server /usr/bin/code-server && \
-   echo "**** clean up ****" && \
+    fi && \
+    CODE_VERSION=$(echo "$CODE_RELEASE" | awk '{print substr($1,2); }') && \
+    pnpm i -g code-server@"$CODE_VERSION" && \
+    ln -s /node_modules/.bin/code-server /usr/bin/code-server && \
+    echo "**** clean up ****" && \
 
 # add local files
 COPY /root /
