@@ -26,5 +26,5 @@ services:
             - ./data/code-server-2/config:/config
         ports:
             - 8099:8443
-            - 8333:5500
+            - 8334:5500
         restart: unless-stopped
