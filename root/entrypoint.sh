@@ -2,7 +2,9 @@
 mkdir -p /config/workspace
 mkdir -p /config/data/logs
 mkdir -p /config/extensions
-
+# Add yarn global to path
+export PATH="$PATH:$(yarn global bin)"
+# Create random password
 export PASSWORD=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c10) && \
     export SUDO_PASSWORD=$PASSWORD && \
     echo "Using password: $PASSWORD"
