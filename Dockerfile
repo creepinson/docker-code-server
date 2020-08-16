@@ -31,7 +31,7 @@ RUN echo "**** install runtime dependencies ****" && \
     echo "**** clean up ****"
 
 # add local files
-COPY ./root /
+COPY ./root/entrypoint.sh /entrypoint.sh
 
 # ports and volumes
 EXPOSE 8443
