@@ -20,7 +20,8 @@ RUN echo "**** install runtime dependencies ****" \
         nodejs \
         npm \
         sudo \
-    && curl -fsSL https://code-server.dev/install.sh | sh
+    && npm install -g pnpm \
+    && pnpm i -g @coder/code-server
 
 # add local files
 COPY ./entrypoint.sh /entrypoint.sh
