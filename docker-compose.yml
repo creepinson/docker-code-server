@@ -2,6 +2,7 @@ version: "3.8"
 services:
     code-server-1:
         build: .
+        env_file: .env
         environment:
             - PUID=1000
             - PGID=1000
@@ -14,6 +15,7 @@ services:
         restart: unless-stopped
     code-server-2:
         build: .
+        env_file: .env
         environment:
             - PUID=1000
             - PGID=1000
