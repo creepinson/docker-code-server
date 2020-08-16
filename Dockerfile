@@ -132,7 +132,6 @@ RUN echo "**** install runtime dependencies ****" \
     binutils \
     isl \
     libatomic \
-    mpfr3 \
     mpc1 \
     gcc \
     musl-dev \
