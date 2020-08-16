@@ -34,7 +34,3 @@ COPY ./root /
 
 # ports and volumes
 EXPOSE 8443
-
-RUN export PASSWORD=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c10) && \
-    export SUDO_PASSWORD=$PASSWORD && \
-    echo "Using password: $PASSWORD"
