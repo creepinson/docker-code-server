@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-    code-server-1:
+    server-1:
         build: .
         env_file: .env
         environment:
@@ -9,12 +9,13 @@ services:
             - TZ=US/Pacific
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock:ro
-            - ./data/code-server-1/config:/config
+            - ./data/code-server-1/config:/home/coder
+            - ./data/code-server-1/config/workspace:/home/coder/project
         ports:
             - 8098:8443
-            - 8333:5500
+            - 8333:5000
         restart: unless-stopped
-    code-server-2:
+    server-2:
         build: .
         env_file: .env
         environment:
@@ -23,8 +24,9 @@ services:
             - TZ=US/Pacific
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock:ro
-            - ./data/code-server-2/config:/config
+            - ./data/code-server-2/config:/home/coder
+            - ./data/code-server-2/config/workspace:/home/coder/project
         ports:
             - 8099:8443
-            - 8334:5500
+            - 8334:5000
         restart: unless-stopped
