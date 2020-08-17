@@ -12,7 +12,7 @@ services:
             - ./data/code-server-1/config:/home/coder
             - ./data/code-server-1/config/workspace:/home/coder/project
         ports:
-            - 8098:8443
+            - 8098:8080
             - 8333:5000
         restart: unless-stopped
     server-2:
@@ -27,6 +27,6 @@ services:
             - ./data/code-server-2/config:/home/coder
             - ./data/code-server-2/config/workspace:/home/coder/project
         ports:
-            - 8099:8443
+            - 8099:8080
             - 8334:5000
         restart: unless-stopped
